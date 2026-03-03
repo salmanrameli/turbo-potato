@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+html {
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+
+body {
+    margin: 0;
+    color: black;
+    /* font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
+    font-family: "Roboto";
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/fonts/Roboto-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 700;
+    src: url("assets/fonts/Roboto-BoldItalic.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: light;
+    font-weight: 300;
+    src: url("assets/fonts/Roboto-Light.ttf") format("ttf");
+}
+
+#app {
+    height: 100vh;
+    text-align: center;
+}
