@@ -42,13 +42,9 @@ func (a *App) startup(ctx context.Context) {
 	projectsPath := userConfigDir + Constants.APP_USER_CONFIG_DIR
 	projectsFileName := "/" + Constants.PROJECTS_FILE_NAME
 
+	fmt.Println("app user config directory: " + projectsPath + projectsFileName)
+
 	_, err = os.Stat(projectsPath + projectsFileName)
-
-	if err != nil {
-		fmt.Println("app startup unable to open project path file", err)
-
-		return
-	}
 
 	if os.IsNotExist(err) {
 		fmt.Println("file not found, creating a new one...")
@@ -69,24 +65,36 @@ func (a *App) startup(ctx context.Context) {
 
 		defer file.Close()
 	} else {
-		file, err := os.ReadFile(projectsPath + projectsFileName)
+		fileInfo, err := os.Stat(projectsPath + projectsFileName)
 
 		if err != nil {
-			fmt.Println("app startup path exists but unable to open file", err)
+			if os.IsNotExist(err) {
+				fmt.Println("app startup os.Stat file does not exists,", err)
 
-			return
+				return
+			}
 		}
 
-		var projectsJsonData []Structs.Project
+		if fileInfo.Size() > 0 {
+			file, err := os.ReadFile(projectsPath + projectsFileName)
 
-		if err = json.Unmarshal(file, &projectsJsonData); err != nil {
-			fmt.Println("app startup unable to read file content", err)
+			if err != nil {
+				fmt.Println("app startup path exists but unable to open file", err)
 
-			return
-		}
+				return
+			}
 
-		for _, item := range projectsJsonData {
-			a.ctx = context.WithValue(ctx, item.ID, item.Path)
+			var projectsJsonData []Structs.Project
+
+			if err = json.Unmarshal(file, &projectsJsonData); err != nil {
+				fmt.Println("app startup unable to read file content", err)
+
+				return
+			}
+
+			for _, item := range projectsJsonData {
+				a.ctx = context.WithValue(ctx, item.ID, item.Path)
+			}
 		}
 	}
 }
@@ -221,8 +229,8 @@ func (a *App) GetFileContent(id string) (map[string]Structs.MedicalData, error) 
 	return data, nil
 }
 
-func (a *App) GetBaseline() Structs.Baseline {
-	return *Standards.MedicalStandard
+func (a *App) GetBaseline() Structs.IndicatorBaseline {
+	return *Standards.StandardIndicators
 }
 
 func (a *App) SelectFileNewProject() string {

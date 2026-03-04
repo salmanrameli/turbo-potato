@@ -5,16 +5,31 @@ type MedicalData struct {
 	Indicators Indicators `csv:",inline"`
 }
 
+type Indicators struct {
+	Hematologi  HematologiItem  `csv:",inline"`
+	Urinalisis  UrinalisisItem  `csv:",inline"`
+	KimiaKlinik KimiaKlinikItem `csv:",inline"`
+}
+
+type HematologiItem struct {
+	DarahRutin     DarahRutinItem     `csv:",inline"`
+	EritrositIndex EritrositIndexItem `csv:",inline"`
+	HitungJenis    HitungJenisItem    `csv:",inline"`
+}
+
+type DarahRutinItem struct {
+	Haemoglobin    float64 `json:"haemoglobin" csv:"haemoglobin,omitempty"`
+	Leukosit       float64 `json:"leukosit" csv:"leukosit,omitempty"`
+	Trombosit      uint16  `json:"trombosit" csv:"trombosit,omitempty"`
+	Hematokrit     float64 `json:"hematokrit" csv:"hematokrit,omitempty"`
+	Eritrosit      float64 `json:"eritrosit" csv:"eritrosit,omitempty"`
+	LajuEndapDarah uint8   `json:"laju_endap_darah" csv:"laju_endap_darah,omitempty"`
+}
+
 type EritrositIndexItem struct {
 	MCV  float64 `json:"mcv" csv:"mcv,omitempty"`
 	MCH  float64 `json:"mch" csv:"mch,omitempty"`
 	MCHC float64 `json:"mchc" csv:"mchc,omitempty"`
-}
-
-type EritrositIndexItemBaseline struct {
-	MCV  ReferenceFloat64
-	MCH  ReferenceFloat64
-	MCHC ReferenceFloat64
 }
 
 type HitungJenisItem struct {
@@ -25,113 +40,50 @@ type HitungJenisItem struct {
 	Monosit   float64 `json:"monosit" csv:"monosit,omitempty"`
 }
 
-type HitungJenisItemBaseline struct {
-	Basofil   ReferenceFloat64
-	Eosinofil ReferenceFloat64
-	Neutrofil ReferenceFloat64
-	Limfosit  ReferenceFloat64
-	Monosit   ReferenceFloat64
-}
-
-type Indicators struct {
-	Haemoglobin    float64            `json:"haemoglobin" csv:"haemoglobin,omitempty"`
-	Eritrosit      float64            `json:"eritrosit" csv:"eritrosit,omitempty"`
-	EritrositIndex EritrositIndexItem `csv:",inline"`
-	// MCV      float64 `json:"mcv" csv:"mcv,omitempty"`
-	// MCH      float64 `json:"mch" csv:"mch,omitempty"`
-	// MCHC     float64 `json:"mchc" csv:"mchc,omitempty"`
-	// EosinofilSingular float64 `json:"eosinofil" csv:"eosinofil,omitempty"`
-	Leukosit         float64 `json:"leukosit" csv:"leukosit,omitempty"`
-	Hematokrit       float64 `json:"hematokrit" csv:"hematokrit,omitempty"`
-	Trombosit        uint16  `json:"trombosit" csv:"trombosit,omitempty"`
-	LajuEndapDarah   uint8   `json:"laju_endap_darah" csv:"laju_endap_darah,omitempty"`
-	GDP              uint8   `json:"gdp" csv:"gdp,omitempty"`
-	CholesterolTotal float64 `json:"cholesterol_total,omitempty"`
-	Trigliserida     uint16  `json:"trigliserida" csv:"trigliserida,omitempty"`
-	HDL              float64 `json:"hdl" csv:"hdl,omitempty"`
-	LDL              float64 `json:"ldl" csv:"ldl,omitempty"`
-	Creatinine       float64 `json:"creatinine"`
-	// CreatinineLK     float64         `json:"creatinine_lk"`
-	// CreatininePR     float64         `json:"creatinine_pr"`
-	BUN         float64         `json:"bun" csv:"bun,omitempty"`
-	AsamUrat    float64         `json:"asam_urat"`
-	HitungJenis HitungJenisItem `csv:",inline"`
-	// Basofil          float64         `json:"basofil" csv:"basofil,omitempty"`
-	// Eosinofil        float64         `json:"eosinofil" csv:"eosinofil,omitempty"`
-	// Neutrofil        float64         `json:"neutrofil" csv:"neutrofil,omitempty"`
-	// Limfosit         float64         `json:"limfosit" csv:"limfosit,omitempty"`
-	Monosit    float64        `json:"monosit" csv:"monosit,omitempty"`
-	Urinalisis UrinalisisItem `csv:",inline"`
-}
-
 type UrinalisisItem struct {
-	Warna        string  `json:"warna_urin" csv:"warna_urin,omitempty"`
-	Kejernihan   string  `json:"kejernihan" csv:"kejernihan,omitempty"`
-	PH           float64 `json:"pH" csv:"ph,omitempty"`
-	BeratJenis   float64 `json:"berat_jenis" csv:"berat_jenis,omitempty"`
-	Protein      string  `json:"protein" csv:"protein,omitempty"`
-	Reduksi      string  `json:"reduksi" csv:"reduksi,omitempty"`
-	Keton        string  `json:"keton" csv:"keton,omitempty"`
-	Bilirubin    string  `json:"bilirubin" csv:"bilirubin,omitempty"`
-	Urobilinogen string  `json:"urobilinogen" csv:"urobilinogen,omitempty"`
+	Warna           string      `json:"warna_urin" csv:"warna_urin,omitempty"`
+	Kejernihan      string      `json:"kejernihan" csv:"kejernihan,omitempty"`
+	PH              float64     `json:"pH" csv:"ph,omitempty"`
+	BeratJenis      float64     `json:"berat_jenis" csv:"berat_jenis,omitempty"`
+	Protein         string      `json:"protein" csv:"protein,omitempty"`
+	Reduksi         string      `json:"reduksi" csv:"reduksi,omitempty"`
+	Keton           string      `json:"keton" csv:"keton,omitempty"`
+	Bilirubin       string      `json:"bilirubin" csv:"bilirubin,omitempty"`
+	Urobilinogen    string      `json:"urobilinogen" csv:"urobilinogen,omitempty"`
+	DarahHbEri      string      `csv:"darah_hb_eri"`
+	Nitrit          string      `csv:"nitrit"`
+	LekositEsterase string      `csv:"lekosit_esterase"`
+	Sedimen         SedimenItem `csv:",inline"`
 }
 
-type Baseline struct {
-	Haemoglobin       ReferenceFloat64
-	Eritrosit         ReferenceFloat64
-	EritrositIndex    EritrositIndexItemBaseline
-	Leukosit          ReferenceFloat64
-	EosinofilSingular ReferenceFloat64
-	Hematokrit        ReferenceFloat64
-	Trombosit         ReferenceUint16
-	LajuEndapDarah    ReferenceUint8
-	GDP               ReferenceUint8
-	CholesterolTotal  ReferenceFloat64
-	Trigliserida      ReferenceUint16
-	HDL               ReferenceFloat64
-	LDL               ReferenceFloat64
-	Creatinine        ReferenceFloat64
-	// CreatinineLK      ReferenceFloat64
-	// CreatininePR      ReferenceFloat64
-	BUN             ReferenceFloat64
-	AsamUrat        ReferenceFloat64
-	HitungJenisItem HitungJenisItemBaseline
-	UrinalisisItem  UrinalisisItemBaseline
+type SedimenItem struct {
+	SLekosit   uint8  `csv:"s_lekosit"`
+	SEritrosit uint8  `csv:"s_eritrosit"`
+	SEpitel    uint8  `csv:"s_epitel"`
+	SSilinder  string `csv:"s_silinder"`
+	SKristal   string `csv:"s_kristal"`
+	SBakteri   string `csv:"s_bakteri"`
+	SJamur     string `csv:"s_jamur"`
+	SLainLain  string `csv:"s_lain_lain"`
 }
 
-type UrinalisisItemBaseline struct {
-	Warna        ReferenceString
-	Kejernihan   ReferenceString
-	PH           ReferenceFloat64
-	BeratJenis   ReferenceFloat64
-	Protein      ReferenceString
-	Reduksi      ReferenceString
-	Keton        ReferenceString
-	Bilirubin    ReferenceString
-	Urobilinogen ReferenceString
-}
-
-type ReferenceFloat64 struct {
-	Min  float64
-	Max  float64
-	Unit string
-	Code string
-}
-
-type ReferenceUint8 struct {
-	Min  uint8
-	Max  uint8
-	Unit string
-	Code string
-}
-
-type ReferenceUint16 struct {
-	Min  uint16
-	Max  uint16
-	Unit string
-	Code string
-}
-
-type ReferenceString struct {
-	Reference string
+type KimiaKlinikItem struct {
+	BilirubinTotal        float64 `csv:"bilirubin_total"`
+	SGOT_AST              float64 `csv:"sgot_ast"`
+	SGPT_ALT              float64 `csv:"sgpt_alt"`
+	Cholinesterase        uint16  `csv:"cholinesterase"`
+	FosfataseAlkali       uint8   `csv:"fosfatase_alkali"`
+	GlukosaPuasa          float64 `csv:"glukosa_puasa"`
+	Glukosa2Jam           float64 `csv:"glukosa_2_jam"`
+	HbA1c                 float64 `csv:"hba1c"`
+	RerataGlukosaDarah    float64 `csv:"rerata_glukosa_darah"`
+	CholesterolTotal      float64 `csv:"cholesterol_total"`
+	HDL                   float64 `json:"hdl" csv:"hdl,omitempty"`
+	LDL                   float64 `json:"ldl" csv:"ldl,omitempty"`
+	Trigliserida          uint16  `json:"trigliserida" csv:"trigliserida,omitempty"`
+	RatioCholesterolTotal float64 `csv:"ratio_cholesterol_total"`
+	Ureum                 float64 `csv:"ureum"`
+	BUN                   float64 `json:"bun" csv:"bun,omitempty"`
+	Kreatinin             float64 `json:"kreatinin"`
+	AsamUrat              float64 `json:"asam_urat"`
 }
