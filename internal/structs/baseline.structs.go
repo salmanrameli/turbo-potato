@@ -83,6 +83,22 @@ type SedimenItemBaseline struct {
 	SLainLain  ReferenceString
 }
 
+type DiagnosisFitWithNoteIndicatorsBaseline struct {
+	Haemoglobin      ReferenceFloat64
+	Eritrosit        ReferenceFloat64
+	Leukosit         ReferenceFloat64
+	Eosinofil        ReferenceFloat64
+	Trombosit        ReferenceUint16
+	LajuEndapDarah   ReferenceUint8
+	GDP              ReferenceUint16
+	CholesterolTotal ReferenceFloat64
+	Trigliserida     ReferenceUint16
+	LDL              ReferenceFloat64
+	KreatininLK      ReferenceFloat64
+	KreatininPR      ReferenceFloat64
+	BUN              ReferenceFloat64
+}
+
 type ReferenceFloat64 struct {
 	Min  float64
 	Max  float64

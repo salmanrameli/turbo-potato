@@ -54,6 +54,7 @@ var KimiaKlinikBaseline = &Structs.KimiaKlinikItemBaseline{
 	RatioCholesterolTotal: Structs.ReferenceFloat64{Max: 4.5},
 	Ureum:                 Structs.ReferenceFloat64{Min: 17, Max: 49, Unit: "mg/dL"},
 	BUN:                   Structs.ReferenceFloat64{Min: 8.0, Max: 23.0, Unit: "mg/dL"},
+	Kreatinin:             Structs.ReferenceFloat64{Min: 0.67, Max: 1.17, Unit: "mg/dL"},
 	AsamUrat:              Structs.ReferenceFloat64{Min: 3.4, Max: 7.0, Unit: "mg/dL"},
 }
 
@@ -70,14 +71,16 @@ var UrinalisisBaseline = &Structs.UrinalisisItemBaseline{
 	DarahHbEri:      Structs.ReferenceString{Reference: "negatif"},
 	Nitrit:          Structs.ReferenceString{Reference: "negatif"},
 	LekositEsterase: Structs.ReferenceString{Reference: "negatif"},
-	SedimenItem: Structs.SedimenItemBaseline{
-		SLekosit:   Structs.ReferenceUint8{Min: 4, Max: 5, Unit: "/LPB"},
-		SEritrosit: Structs.ReferenceUint8{Min: 0, Max: 1, Unit: "/LPB"},
-		SEpitel:    Structs.ReferenceUint8{Unit: "/LPK"},
-		SSilinder:  Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
-		SKristal:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
-		SBakteri:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPB"},
-		SJamur:     Structs.ReferenceString{Reference: "negatif", Unit: "/LPB"},
-		SLainLain:  Structs.ReferenceString{Reference: "negatif"},
-	},
+	SedimenItem:     *SedimenBaseline,
+}
+
+var SedimenBaseline = &Structs.SedimenItemBaseline{
+	SLekosit:   Structs.ReferenceUint8{Min: 4, Max: 5, Unit: "/LPB"},
+	SEritrosit: Structs.ReferenceUint8{Min: 0, Max: 1, Unit: "/LPB"},
+	SEpitel:    Structs.ReferenceUint8{Unit: "/LPK"},
+	SSilinder:  Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
+	SKristal:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
+	SBakteri:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPB"},
+	SJamur:     Structs.ReferenceString{Reference: "negatif", Unit: "/LPB"},
+	SLainLain:  Structs.ReferenceString{Reference: "negatif"},
 }
