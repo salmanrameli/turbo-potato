@@ -1,4 +1,4 @@
-export interface indicators {
+export interface Indicators {
     hematologi: hematologiItem,
     urinalisis: urinalisisItem,
     kimiaKlinik: kimiaKlinikItem,

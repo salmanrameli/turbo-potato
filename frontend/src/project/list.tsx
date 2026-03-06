@@ -1,17 +1,18 @@
 import {useEffect, useState} from 'react';
 import { useParams, useNavigate } from 'react-router';
 import {Dump, GetBaseline, GetFileContent, ListData} from "../../wailsjs/go/main/App";
-import {Indicators, MedicalData, Patient, Baseline} from "../types";
+import {MedicalData, Patient} from "../types";
+import {IndicatorBaseline} from "../interfaces/baseline"
+import {Indicators} from "../interfaces/medical_indicators"
 import Detail from './detail';
 import { global } from '../constants';
 
 function List() {
     let navigate = useNavigate();
     let { id } = useParams()
-    const [baseline, setBaseline] = useState<Baseline>()
+    const [baseline, setBaseline] = useState<IndicatorBaseline>()
     const [patients, setPatients] = useState<Patient[]>([])
     const [medicalData, setMedicalData] = useState<Record<string, MedicalData>>()
-    // const [idParam, setIdParam] = useState<string>()
     const [detail, setDetail] = useState<MedicalData>()
     const [mode, setMode] = useState<number>(global.MODE_LIST)
     const [isLoadingData, setIsLoadingData] = useState<boolean>(true)
@@ -27,7 +28,7 @@ function List() {
     useEffect(() => {
         if (id) {
             GetBaseline().then((data) => {
-                setBaseline(data)
+                // setBaseline(data)
             })
 
             ListData(id).then((data) => {

@@ -33,6 +33,16 @@ function Create() {
                         <button className="float-left mt-1 border rounded-md border-stone-800 text-sm px-2 py-1 ml-2" onClick={_ => setPath("")}>clear</button>
                     </div>
                 }
+                <div>
+                    <div>
+                        <input type="checkbox" name="fit_with_note" value="1"></input>
+                        <label htmlFor="fit_with_note">Fit with note</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="temporary_unfit" value="2"></input>
+                        <label htmlFor="temporary_unfit">Temporary unfit</label>
+                    </div>
+                </div>
             </div>
             <button type="submit" className="mt-4 border rounded-md border-stone-800 font-medium text-sm px-2 py-2" disabled={name && path ? false : true} onClick={_ => submit()}>Submit</button>
         </div>

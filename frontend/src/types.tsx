@@ -1,4 +1,4 @@
-import { indicators } from "./interfaces/medical_indicators"
+import { Indicators } from "./interfaces/medical_indicators"
 
 export interface Patient {
     ID: string,
@@ -7,5 +7,5 @@ export interface Patient {
 
 export interface MedicalData {
     Patient: Patient,
-    Indicators: indicators
+    Indicators: Indicators
 }

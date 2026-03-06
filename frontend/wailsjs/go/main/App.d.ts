@@ -5,7 +5,7 @@ import {context} from '../models';
 
 export function Dump(arg1:any):Promise<void>;
 
-export function GetBaseline():Promise<structs.Baseline>;
+export function GetBaseline():Promise<structs.IndicatorBaseline>;
 
 export function GetFileContent(arg1:string):Promise<Record<string, structs.MedicalData>>;
 

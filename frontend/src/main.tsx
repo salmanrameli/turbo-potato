@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import './style.css'
 import App from './App'
 import List from './project/list';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const container = document.getElementById('root')
 
