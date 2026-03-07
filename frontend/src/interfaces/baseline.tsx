@@ -4,7 +4,7 @@ export interface IndicatorBaseline {
     KimiaKlinikBaseline: KimiaKlinikItemBaseline,
 }
 
-interface HematologiItemBaseline {
+export interface HematologiItemBaseline {
     DarahRutinItem: DarahRutinItemBaseline,
     EritrositIndex: EritrositIndexItemBaseline,
     HitungJenisItem: HitungJenisItemBaseline,

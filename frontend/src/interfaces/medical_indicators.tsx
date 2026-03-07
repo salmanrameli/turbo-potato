@@ -4,7 +4,7 @@ export interface Indicators {
     KimiaKlinik: kimiaKlinikItem,
 }
 
-interface hematologiItem {
+export interface hematologiItem {
     DarahRutin: darahRutinItem
     EritrositIndex : eritrositIndexItem,
     HitungJenis: hitungJenisItem,
