@@ -19,19 +19,20 @@ function List() {
 
     function showDetail(id: string) {
         if (medicalData) {
-            setMode(global.MODE_DETAIL)
-
             setDetail(medicalData[id])
         }
     }
 
     useEffect(() => {
-        if (id) {
-            GetBaseline().then((data) => {
-                setBaseline(data)
-            })
+        if (baseline && detail) {
+            Dump("detail set")
+            setMode(global.MODE_DETAIL)
+        }
+    }, [detail])
 
-            ListData(id).then((data) => {
+    useEffect(() => {
+        if (id) {
+             ListData(id).then((data) => {
                 setPatients(data)
             })
 
@@ -41,12 +42,18 @@ function List() {
         }
     }, [id])
 
+    useEffect(() => {
+        GetBaseline().then((data) => {
+            setBaseline(data)
+        })
+    }, [])
+
     function displayNavigationButton() {
         switch(mode) {
             case global.MODE_LIST:
-                return <h1 className='text-left cursor-pointer' onClick={() => navigate('/')}>home</h1>
+                return <p className='text-left cursor-pointer' onClick={() => navigate('/')}>home</p>
             case global.MODE_DETAIL:
-                return <h1 className='text-left cursor-pointer' onClick={() => setMode(global.MODE_LIST)}>back</h1>
+                return <p className='text-left cursor-pointer' onClick={() => setMode(global.MODE_LIST)}>back</p>
         }
     }
 
@@ -81,7 +88,7 @@ function List() {
                         {
                             <Detail
                                 baseline={baseline}
-                                data={detail}
+                                data={detail!}
                             />
                         }
                     </>

@@ -1,13 +1,13 @@
 export interface Indicators {
-    hematologi: hematologiItem,
-    urinalisis: urinalisisItem,
-    kimiaKlinik: kimiaKlinikItem,
+    Hematologi: hematologiItem,
+    Urinalisis: urinalisisItem,
+    KimiaKlinik: kimiaKlinikItem,
 }
 
 interface hematologiItem {
-    darahRutin: darahRutinItem
-    eritrositIndex : eritrositIndexItem,
-    hitungJenis: hitungJenisItem,
+    DarahRutin: darahRutinItem
+    EritrositIndex : eritrositIndexItem,
+    HitungJenis: hitungJenisItem,
 }
 
 interface darahRutinItem {
