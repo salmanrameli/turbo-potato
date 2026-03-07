@@ -15,7 +15,7 @@ export function ListData(arg1:string):Promise<Array<structs.Patient>>;
 
 export function ListProjects():Promise<Array<structs.Project>>;
 
-export function SaveProject(arg1:string,arg2:string):Promise<void>;
+export function SaveProject(arg1:string,arg2:string,arg3:Array<number>):Promise<void>;
 
 export function SelectFile(arg1:context.Context):Promise<string>;
 

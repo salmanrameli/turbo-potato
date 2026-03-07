@@ -27,10 +27,6 @@ func ListData(path string) ([]Structs.Patient, error) {
 
 	defer file.Close()
 
-	// reader := csv.NewReader(file)
-
-	// decoder, err := csvutil.NewDecoder(reader)
-
 	stat, _ := file.Stat()
 
 	bs := make([]byte, stat.Size())
@@ -48,14 +44,6 @@ func ListData(path string) ([]Structs.Patient, error) {
 		fmt.Println("list List csvutil.Unmarshall error", err)
 		return patients, err
 	}
-
-	// for {
-	// 	if err := decoder.Decode(&patients); err == io.EOF {
-	// 		fmt.Println(err)
-
-	// 		break
-	// 	}
-	// }
 
 	return patients, nil
 }

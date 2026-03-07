@@ -26,8 +26,8 @@ export function ListProjects() {
   return window['go']['main']['App']['ListProjects']();
 }
 
-export function SaveProject(arg1, arg2) {
-  return window['go']['main']['App']['SaveProject'](arg1, arg2);
+export function SaveProject(arg1, arg2, arg3) {
+  return window['go']['main']['App']['SaveProject'](arg1, arg2, arg3);
 }
 
 export function SelectFile(arg1) {

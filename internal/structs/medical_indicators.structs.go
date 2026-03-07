@@ -80,7 +80,7 @@ type KimiaKlinikItem struct {
 	CholesterolTotal      float64 `csv:"cholesterol_total"`
 	HDL                   float64 `json:"hdl" csv:"hdl,omitempty"`
 	LDL                   float64 `json:"ldl" csv:"ldl,omitempty"`
-	Trigliserida          uint16  `json:"trigliserida" csv:"trigliserida,omitempty"`
+	Trigliserida          float64 `json:"trigliserida" csv:"trigliserida,omitempty"`
 	RatioCholesterolTotal float64 `csv:"ratio_cholesterol_total"`
 	Ureum                 float64 `csv:"ureum"`
 	BUN                   float64 `json:"bun" csv:"bun,omitempty"`

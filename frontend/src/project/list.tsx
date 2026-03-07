@@ -28,7 +28,7 @@ function List() {
     useEffect(() => {
         if (id) {
             GetBaseline().then((data) => {
-                // setBaseline(data)
+                setBaseline(data)
             })
 
             ListData(id).then((data) => {

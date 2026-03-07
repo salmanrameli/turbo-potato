@@ -245,18 +245,21 @@ func (a *App) SelectFileNewProject() string {
 	return path
 }
 
-func (a *App) SaveProject(name string, path string) error {
+func (a *App) SaveProject(name string, path string, standards []uint8) error {
 	if name == "" || path == "" {
 		return nil
 	}
 
 	projects := a.ListProjects()
 
+	a.Dump(standards)
+
 	projects = append(projects, Structs.Project{
-		ID:          uuid.New().String(),
-		Name:        name,
-		Path:        path,
-		DateCreated: time.Now().Unix(),
+		ID:                 uuid.New().String(),
+		Name:               name,
+		Path:               path,
+		DiagnosisStandards: standards,
+		DateCreated:        time.Now().Unix(),
 	})
 
 	jsonString, err := json.Marshal(projects)

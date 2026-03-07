@@ -5,9 +5,9 @@ export interface IndicatorBaseline {
 }
 
 interface HematologiItemBaseline {
-    DarahRutinBaseline: DarahRutinItemBaseline,
-    EritrositIndexBaseline: EritrositIndexItemBaseline,
-    HitungJenisBaseline: HitungJenisItemBaseline,
+    DarahRutinItem: DarahRutinItemBaseline,
+    EritrositIndex: EritrositIndexItemBaseline,
+    HitungJenisItem: HitungJenisItemBaseline,
 }
 
 interface DarahRutinItemBaseline {

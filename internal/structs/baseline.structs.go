@@ -64,7 +64,7 @@ type KimiaKlinikItemBaseline struct {
 	CholesterolTotal      ReferenceFloat64
 	HDL                   ReferenceFloat64
 	LDL                   ReferenceFloat64
-	Trigliserida          ReferenceUint16
+	Trigliserida          ReferenceFloat64
 	RatioCholesterolTotal ReferenceFloat64
 	Ureum                 ReferenceFloat64
 	BUN                   ReferenceFloat64
@@ -92,7 +92,7 @@ type DiagnosisFitWithNoteIndicatorsBaseline struct {
 	LajuEndapDarah   ReferenceUint8
 	GDP              ReferenceUint16
 	CholesterolTotal ReferenceFloat64
-	Trigliserida     ReferenceUint16
+	Trigliserida     ReferenceFloat64
 	LDL              ReferenceFloat64
 	KreatininLK      ReferenceFloat64
 	KreatininPR      ReferenceFloat64

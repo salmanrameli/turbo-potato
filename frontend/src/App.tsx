@@ -44,7 +44,7 @@ function App() {
                     <p className='text-sky-500 cursor-pointer text-left'>Open Project</p>
                 </>
             case global.MODE_CREATE_NEW:
-                return <h1 className='text-left cursor-pointer' onClick={_ => setMode(global.MODE_HOME)}>back</h1>
+                return <p className='text-left cursor-pointer' onClick={_ => setMode(global.MODE_HOME)}>back</p>
         }
     }
 
@@ -53,8 +53,8 @@ function App() {
             case global.MODE_HOME:
                 return <div className="h-56 grid grid-cols-3 gap-4 content-start w-full">
                     {projects.map((item) => {
-                        return <button className='border border-2 border-rose-600 hover:bg-sky-500 rounded-md cursor-pointer'>
-                            <p className='font-normal hover:bg-sky-700' onClick={_ => navigate("/" + item.id)}>{item.name}</p>
+                        return <button className='border border-2 rounded-md cursor-pointer'>
+                            <p className='font-normal' onClick={_ => navigate("/" + item.id)}>{item.name}</p>
                         </button>
                     })}
                 </div>
@@ -66,22 +66,20 @@ function App() {
     return (
         <div id="App" className='container-fluid font-roboto'>
             <div className='row'>
-                <div className='col-12 m-4'>
                 {
                     <>
                         {
                             mode == global.MODE_HOME && 
-                                <div className='mt-4'>
+                                <div className='col-12 mt-2'>
                                     <h1 className='display-1 float-left'>IXFREDOCS</h1>
                                 </div>
                         }
-                        <div className='my-4 w-100 align-left'>
+                        <div className='col-12 my-2 w-100 align-left'>
                             {displayButton()}
                         </div>
                         {displayContent()}
                     </>
                 }
-                </div>
             </div>
         </div>
     )

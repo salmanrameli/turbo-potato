@@ -11,7 +11,7 @@ var DiagnosisFitWithNote = &Structs.DiagnosisFitWithNoteIndicatorsBaseline{
 	LajuEndapDarah:   Structs.ReferenceUint8{Min: 50},
 	GDP:              Structs.ReferenceUint16{Min: 125},
 	CholesterolTotal: Structs.ReferenceFloat64{Min: 200},
-	Trigliserida:     Structs.ReferenceUint16{Min: 150, Max: 500}, // 150 < val < 500
+	Trigliserida:     Structs.ReferenceFloat64{Min: 150, Max: 500}, // 150 < val < 500
 	LDL:              Structs.ReferenceFloat64{Min: 150},
 	KreatininLK:      Structs.ReferenceFloat64{Min: 1.17, Max: 5}, // normal < val < 5
 	KreatininPR:      Structs.ReferenceFloat64{Min: 0.95, Max: 5}, // normal < val < 5
@@ -27,7 +27,7 @@ var DiagnosisTemporaryUnfit = &Structs.DiagnosisFitWithNoteIndicatorsBaseline{
 	LajuEndapDarah:   DiagnosisFitWithNote.LajuEndapDarah,
 	GDP:              Structs.ReferenceUint16{Min: 70, Max: 400}, // < 70 || > 400
 	CholesterolTotal: DiagnosisFitWithNote.CholesterolTotal,
-	Trigliserida:     Structs.ReferenceUint16{Max: 499}, // >= 500
+	Trigliserida:     Structs.ReferenceFloat64{Max: 499}, // >= 500
 	LDL:              DiagnosisFitWithNote.LDL,
 	KreatininLK:      Structs.ReferenceFloat64{Max: 5}, // > 5
 	KreatininPR:      Structs.ReferenceFloat64{Max: 5}, // > 5

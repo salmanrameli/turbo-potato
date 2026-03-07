@@ -50,7 +50,7 @@ var KimiaKlinikBaseline = &Structs.KimiaKlinikItemBaseline{
 	CholesterolTotal:      Structs.ReferenceFloat64{Max: 200.0, Unit: "mg/dL"},
 	HDL:                   Structs.ReferenceFloat64{Min: 40.0, Max: 60.0, Unit: "mg/dL"},
 	LDL:                   Structs.ReferenceFloat64{Min: 0, Max: 130.0, Unit: "mg/dL"},
-	Trigliserida:          Structs.ReferenceUint16{Min: 0, Max: 150, Unit: "mg/dL"},
+	Trigliserida:          Structs.ReferenceFloat64{Min: 0, Max: 150, Unit: "mg/dL"},
 	RatioCholesterolTotal: Structs.ReferenceFloat64{Max: 4.5},
 	Ureum:                 Structs.ReferenceFloat64{Min: 17, Max: 49, Unit: "mg/dL"},
 	BUN:                   Structs.ReferenceFloat64{Min: 8.0, Max: 23.0, Unit: "mg/dL"},

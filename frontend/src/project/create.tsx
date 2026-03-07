@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { SaveProject, SelectFileNewProject } from "../../wailsjs/go/main/App"
+import { Dump, SaveProject, SelectFileNewProject } from "../../wailsjs/go/main/App"
 
 function Create() {
     const [path, setPath] = useState<string>("")
     const [name, setName] = useState<string>("")
+    const [diagnosaStandard, setDiagnosaStandard] = useState<number[]>([])
 
     function selectFile() {
         SelectFileNewProject().then((path) => {
@@ -12,7 +13,23 @@ function Create() {
     }
 
     function submit() {
-        SaveProject(name, path).then(() => {})
+        Dump(diagnosaStandard)
+        
+        SaveProject(name, path, diagnosaStandard).then(() => {})
+    }
+
+    function changeDiagnosaStandard(event: any, value: number) {
+        if (event.target.checked) {
+            Dump("checked with value: " + value);
+
+            setDiagnosaStandard(prevDiagnosaStandard => [...prevDiagnosaStandard, value])
+        } else {
+            Dump("uncheck for value: " + value)
+
+            const updatedItem = diagnosaStandard.filter((item: number) => item != value)
+
+            setDiagnosaStandard(updatedItem)
+        }
     }
 
     return (
@@ -33,14 +50,14 @@ function Create() {
                         <button className="float-left mt-1 border rounded-md border-stone-800 text-sm px-2 py-1 ml-2" onClick={_ => setPath("")}>clear</button>
                     </div>
                 }
-                <div>
-                    <div>
-                        <input type="checkbox" name="fit_with_note" value="1"></input>
-                        <label htmlFor="fit_with_note">Fit with note</label>
+                <div className="col-12 align-left">
+                    <div className="col-12">
+                        <input type="checkbox" name="fit_with_note" className="inline-flex" value="1" onChange={e => changeDiagnosaStandard(e, 1)}></input>
+                        <label htmlFor="fit_with_note" className="inline-flex">Fit with note</label>
                     </div>
-                    <div>
-                        <input type="checkbox" name="temporary_unfit" value="2"></input>
-                        <label htmlFor="temporary_unfit">Temporary unfit</label>
+                    <div className="col-12">
+                        <input type="checkbox" name="temporary_unfit" value="2" className="inline-flex" onChange={e => changeDiagnosaStandard(e, 2)}></input>
+                        <label htmlFor="temporary_unfit" className="inline-flex">Temporary unfit</label>
                     </div>
                 </div>
             </div>

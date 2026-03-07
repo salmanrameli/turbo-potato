@@ -214,7 +214,7 @@ export namespace structs {
 	    CholesterolTotal: ReferenceFloat64;
 	    HDL: ReferenceFloat64;
 	    LDL: ReferenceFloat64;
-	    Trigliserida: ReferenceUint16;
+	    Trigliserida: ReferenceFloat64;
 	    RatioCholesterolTotal: ReferenceFloat64;
 	    Ureum: ReferenceFloat64;
 	    BUN: ReferenceFloat64;
@@ -239,7 +239,7 @@ export namespace structs {
 	        this.CholesterolTotal = this.convertValues(source["CholesterolTotal"], ReferenceFloat64);
 	        this.HDL = this.convertValues(source["HDL"], ReferenceFloat64);
 	        this.LDL = this.convertValues(source["LDL"], ReferenceFloat64);
-	        this.Trigliserida = this.convertValues(source["Trigliserida"], ReferenceUint16);
+	        this.Trigliserida = this.convertValues(source["Trigliserida"], ReferenceFloat64);
 	        this.RatioCholesterolTotal = this.convertValues(source["RatioCholesterolTotal"], ReferenceFloat64);
 	        this.Ureum = this.convertValues(source["Ureum"], ReferenceFloat64);
 	        this.BUN = this.convertValues(source["BUN"], ReferenceFloat64);
@@ -430,7 +430,7 @@ export namespace structs {
 	    id: string;
 	    path: string;
 	    name: string;
-	    diagnosis_standards: string[];
+	    diagnosis_standards: number[];
 	    date_created: number;
 	
 	    static createFrom(source: any = {}) {
