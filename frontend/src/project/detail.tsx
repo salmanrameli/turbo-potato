@@ -1,6 +1,5 @@
 import { MedicalData } from "../types";
 import { IndicatorBaseline } from "../interfaces/baseline"
-import { Dump } from "../../wailsjs/go/main/App";
 
 function Detail({ baseline, data }: { baseline: IndicatorBaseline | undefined, data: MedicalData }) {
     return (

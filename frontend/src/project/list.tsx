@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router';
 import {Dump, GetBaseline, GetFileContent, ListData} from "../../wailsjs/go/main/App";
 import {MedicalData, Patient} from "../types";
 import {IndicatorBaseline} from "../interfaces/baseline"
-import {Indicators} from "../interfaces/medical_indicators"
 import Detail from './detail';
 import { global } from '../constants';
 
@@ -13,7 +12,7 @@ function List() {
     const [baseline, setBaseline] = useState<IndicatorBaseline>()
     const [patients, setPatients] = useState<Patient[]>([])
     const [medicalData, setMedicalData] = useState<Record<string, MedicalData>>()
-    const [detail, setDetail] = useState<MedicalData>()
+    const [detail, setDetail] = useState<MedicalData | undefined>(undefined)
     const [mode, setMode] = useState<number>(global.MODE_LIST)
     const [isLoadingData, setIsLoadingData] = useState<boolean>(true)
 
@@ -25,7 +24,6 @@ function List() {
 
     useEffect(() => {
         if (baseline && detail) {
-            Dump("detail set")
             setMode(global.MODE_DETAIL)
         }
     }, [detail])
@@ -48,12 +46,18 @@ function List() {
         })
     }, [])
 
+    function back() {
+        setDetail(undefined)
+
+        setMode(global.MODE_LIST)
+    }
+
     function displayNavigationButton() {
         switch(mode) {
             case global.MODE_LIST:
                 return <p className='text-left cursor-pointer' onClick={() => navigate('/')}>home</p>
             case global.MODE_DETAIL:
-                return <p className='text-left cursor-pointer' onClick={() => setMode(global.MODE_LIST)}>back</p>
+                return <p className='text-left cursor-pointer' onClick={() => back()}>back</p>
         }
     }
 
@@ -62,10 +66,10 @@ function List() {
             {displayNavigationButton()}
             {
                 mode == global.MODE_LIST ? (
-                    <table className='table-fixed w-full text-left'>
+                    <table className='table table-sm table-bordered w-full text-left'>
                         <thead>
                             <tr>
-                                <th className='w-50'>ID</th>
+                                <th className='w-auto'>ID</th>
                                 <th>Nama</th>
                                 <th colSpan={2}>Action</th>
                             </tr>
@@ -75,10 +79,10 @@ function List() {
                                 return <tr>
                                     <td>{patient.ID}</td>
                                     <td>{patient.Nama}</td>
-                                    <td className='text-sky-500'>
-                                        <button className='cursor-pointer' disabled={isLoadingData}  onClick={(_) => showDetail(patient.ID)}>Detail...</button>
+                                    <td>
+                                        <button className='cursor-pointer text-info' disabled={isLoadingData}  onClick={(_) => showDetail(patient.ID)}>Detail...</button>
                                     </td>
-                                    <td className='text-sky-500 cursor-pointer'>Print</td>
+                                    <td className='cursor-pointer text-info'>Print</td>
                                 </tr>
                             })}
                         </tbody>
