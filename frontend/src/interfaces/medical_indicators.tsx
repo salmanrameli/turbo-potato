@@ -50,9 +50,9 @@ interface urinalisisItem {
 }
 
 interface sedimenItem {
-    sLekosit: number,
-    sEritrosit: number,
-    sEpitel: number,
+    sLekosit: string,
+    sEritrosit: string,
+    sEpitel: string,
     sSilinder: string,
     sKristal: string,
     sBakteri: string,

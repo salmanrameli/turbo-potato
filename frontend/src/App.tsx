@@ -51,13 +51,23 @@ function App() {
     function displayContent() {
         switch (mode) {
             case global.MODE_HOME:
-                return <div className="h-56 grid grid-cols-3 gap-4 content-start w-full">
-                    {projects.map((item) => {
-                        return <button className='border border-2 rounded-md cursor-pointer'>
-                            <p className='font-normal' onClick={_ => navigate("/" + item.id)}>{item.name}</p>
-                        </button>
-                    })}
-                </div>
+                return (
+                    <table className='table table-sm table-bordered table-striped text-left'>
+                        <thead>
+                            <tr>
+                                <th colSpan={2} className='w-full'>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {projects.map((item) => {
+                                return <tr>
+                                    <td className='cursor-default'>{item.name}</td>
+                                    <td><span className='cursor-pointer float-end pr-2 text-info' onClick={_ => navigate("/" + item.id)}>View...</span></td>
+                                </tr>
+                            })}
+                        </tbody>
+                    </table>
+                )
             case global.MODE_CREATE_NEW:
                 return <Create />
         }
@@ -74,10 +84,14 @@ function App() {
                                     <h1 className='display-1 float-left'>IXFREDOCS</h1>
                                 </div>
                         }
-                        <div className='col-12 my-2 w-100 align-left'>
-                            {displayButton()}
+                        <div className='row'>
+                            <div className='col-12 my-2'>
+                                {displayButton()}
+                            </div>
+                            <div className='col-12'>
+                                {displayContent()}
+                            </div>
                         </div>
-                        {displayContent()}
                     </>
                 }
             </div>

@@ -75,9 +75,9 @@ var UrinalisisBaseline = &Structs.UrinalisisItemBaseline{
 }
 
 var SedimenBaseline = &Structs.SedimenItemBaseline{
-	SLekosit:   Structs.ReferenceUint8{Min: 4, Max: 5, Unit: "/LPB"},
-	SEritrosit: Structs.ReferenceUint8{Min: 0, Max: 1, Unit: "/LPB"},
-	SEpitel:    Structs.ReferenceUint8{Unit: "/LPK"},
+	SLekosit:   Structs.ReferenceString{Unit: "/LPB"},
+	SEritrosit: Structs.ReferenceString{Unit: "/LPB"},
+	SEpitel:    Structs.ReferenceString{Unit: "/LPK"},
 	SSilinder:  Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
 	SKristal:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPK"},
 	SBakteri:   Structs.ReferenceString{Reference: "negatif", Unit: "/LPB"},

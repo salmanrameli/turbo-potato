@@ -266,9 +266,9 @@ export namespace structs {
 		}
 	}
 	export class SedimenItemBaseline {
-	    SLekosit: ReferenceUint8;
-	    SEritrosit: ReferenceUint8;
-	    SEpitel: ReferenceUint8;
+	    SLekosit: ReferenceString;
+	    SEritrosit: ReferenceString;
+	    SEpitel: ReferenceString;
 	    SSilinder: ReferenceString;
 	    SKristal: ReferenceString;
 	    SBakteri: ReferenceString;
@@ -281,9 +281,9 @@ export namespace structs {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.SLekosit = this.convertValues(source["SLekosit"], ReferenceUint8);
-	        this.SEritrosit = this.convertValues(source["SEritrosit"], ReferenceUint8);
-	        this.SEpitel = this.convertValues(source["SEpitel"], ReferenceUint8);
+	        this.SLekosit = this.convertValues(source["SLekosit"], ReferenceString);
+	        this.SEritrosit = this.convertValues(source["SEritrosit"], ReferenceString);
+	        this.SEpitel = this.convertValues(source["SEpitel"], ReferenceString);
 	        this.SSilinder = this.convertValues(source["SSilinder"], ReferenceString);
 	        this.SKristal = this.convertValues(source["SKristal"], ReferenceString);
 	        this.SBakteri = this.convertValues(source["SBakteri"], ReferenceString);

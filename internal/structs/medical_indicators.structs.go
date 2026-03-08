@@ -43,23 +43,23 @@ type HitungJenisItem struct {
 type UrinalisisItem struct {
 	Warna           string      `json:"warna_urin" csv:"warna_urin,omitempty"`
 	Kejernihan      string      `json:"kejernihan" csv:"kejernihan,omitempty"`
-	PH              float64     `json:"pH" csv:"ph,omitempty"`
-	BeratJenis      float64     `json:"berat_jenis" csv:"berat_jenis,omitempty"`
-	Protein         string      `json:"protein" csv:"protein,omitempty"`
-	Reduksi         string      `json:"reduksi" csv:"reduksi,omitempty"`
-	Keton           string      `json:"keton" csv:"keton,omitempty"`
-	Bilirubin       string      `json:"bilirubin" csv:"bilirubin,omitempty"`
-	Urobilinogen    string      `json:"urobilinogen" csv:"urobilinogen,omitempty"`
-	DarahHbEri      string      `csv:"darah_hb_eri"`
+	PH              float64     `json:"urine_ph" csv:"urine_ph,omitempty"`
+	BeratJenis      float64     `json:"urine_berat_jenis" csv:"urine_berat_jenis,omitempty"`
+	Protein         string      `json:"urine_protein" csv:"urine_protein,omitempty"`
+	Reduksi         string      `json:"urine_reduksi" csv:"urine_reduksi,omitempty"`
+	Keton           string      `json:"urine_keton" csv:"urine_keton,omitempty"`
+	Bilirubin       string      `json:"urine_bilirubin" csv:"urine_bilirubin,omitempty"`
+	Urobilinogen    string      `json:"urine_urobilinogen" csv:"urine_urobilinogen,omitempty"`
+	DarahHbEri      string      `csv:"urine_darah_hb_eri"`
 	Nitrit          string      `csv:"nitrit"`
 	LekositEsterase string      `csv:"lekosit_esterase"`
 	Sedimen         SedimenItem `csv:",inline"`
 }
 
 type SedimenItem struct {
-	SLekosit   uint8  `csv:"s_lekosit"`
-	SEritrosit uint8  `csv:"s_eritrosit"`
-	SEpitel    uint8  `csv:"s_epitel"`
+	SLekosit   string `csv:"s_lekosit"`
+	SEritrosit string `csv:"s_eritrosit"`
+	SEpitel    string `csv:"s_epitel"`
 	SSilinder  string `csv:"s_silinder"`
 	SKristal   string `csv:"s_kristal"`
 	SBakteri   string `csv:"s_bakteri"`

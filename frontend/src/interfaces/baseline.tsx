@@ -71,9 +71,9 @@ interface UrinalisisItemBaseline {
 }
 
 interface SedimenItemBaseline {
-    SLekosit: ReferenceNumber,
-    SEritrosit: ReferenceNumber,
-    SEpitel: ReferenceNumber,
+    SLekosit: ReferenceString,
+    SEritrosit: ReferenceString,
+    SEpitel: ReferenceString,
     SSilinder: ReferenceString,
     SKristal: ReferenceString,
     SBakteri: ReferenceString,

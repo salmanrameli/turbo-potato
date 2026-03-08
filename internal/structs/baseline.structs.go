@@ -73,9 +73,9 @@ type KimiaKlinikItemBaseline struct {
 }
 
 type SedimenItemBaseline struct {
-	SLekosit   ReferenceUint8
-	SEritrosit ReferenceUint8
-	SEpitel    ReferenceUint8
+	SLekosit   ReferenceString
+	SEritrosit ReferenceString
+	SEpitel    ReferenceString
 	SSilinder  ReferenceString
 	SKristal   ReferenceString
 	SBakteri   ReferenceString

@@ -5,9 +5,12 @@ import { breakdown } from '../constants';
 import Hematologi from './medical_detail/hematologi';
 import KimiaKlinik from './medical_detail/kimia_klinik';
 import Urinalisis from './medical_detail/urinalisis';
+import { Dump } from '../../wailsjs/go/main/App';
 
 function Detail({ baseline, data }: { baseline: IndicatorBaseline | undefined, data: MedicalData }) {
     const [mode, setMode] = useState<number>(breakdown.MODE_HEMATOLOGI)
+
+    Dump(data)
 
     function displayData() {
         switch(mode) {
