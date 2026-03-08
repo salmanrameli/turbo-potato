@@ -45,7 +45,7 @@ var KimiaKlinikBaseline = &Structs.KimiaKlinikItemBaseline{
 	FosfataseAlkali:       Structs.ReferenceUint8{Min: 40, Max: 130, Unit: "U/L", Code: "ALP"},
 	GlukosaPuasa:          Structs.ReferenceFloat64{Min: 70, Max: 99, Unit: "mg/dL"},
 	Glukosa2Jam:           Structs.ReferenceFloat64{Max: 140, Unit: "mg/dL"},
-	HbA1c:                 Structs.ReferenceFloat64{Max: 6.5, Unit: "%"},
+	HbA1c:                 Structs.ReferenceFloat64{Max: 6.5, Unit: "%", Code: "NGSP"},
 	RerataGlukosaDarah:    Structs.ReferenceFloat64{Unit: "mg/dL"},
 	CholesterolTotal:      Structs.ReferenceFloat64{Max: 200.0, Unit: "mg/dL"},
 	HDL:                   Structs.ReferenceFloat64{Min: 40.0, Max: 60.0, Unit: "mg/dL"},

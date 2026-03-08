@@ -84,6 +84,6 @@ type KimiaKlinikItem struct {
 	RatioCholesterolTotal float64 `csv:"ratio_cholesterol_total"`
 	Ureum                 float64 `csv:"ureum"`
 	BUN                   float64 `json:"bun" csv:"bun,omitempty"`
-	Kreatinin             float64 `json:"kreatinin"`
-	AsamUrat              float64 `json:"asam_urat"`
+	Kreatinin             float64 `json:"kreatinin" csv:"kreatinin"`
+	AsamUrat              float64 `json:"asam_urat" csv:"asam_urat"`
 }

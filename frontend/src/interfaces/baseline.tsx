@@ -33,7 +33,7 @@ interface HitungJenisItemBaseline {
     Monosit: ReferenceNumber,
 }
 
-interface KimiaKlinikItemBaseline {
+export interface KimiaKlinikItemBaseline {
     BilirubinTotal: ReferenceNumber,
     SGOT_AST: ReferenceNumber,
     SGPT_ALT: ReferenceNumber,
@@ -54,7 +54,7 @@ interface KimiaKlinikItemBaseline {
     AsamUrat: ReferenceNumber,    
 }
 
-interface UrinalisisItemBaseline {
+export interface UrinalisisItemBaseline {
     Warna: ReferenceString,
     Kejernihan: ReferenceString,
     PH: ReferenceNumber,

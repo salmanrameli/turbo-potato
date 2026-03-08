@@ -17,7 +17,7 @@ function Detail({ baseline, data }: { baseline: IndicatorBaseline | undefined, d
             case breakdown.MODE_HEMATOLOGI:
                 return <Hematologi baseline={baseline?.HematologiBaseline} data={data.Indicators.Hematologi} />
             case breakdown.MODE_KIMIA_KLINIK:
-                return <KimiaKlinik />
+                return <KimiaKlinik baseline={baseline?.KimiaKlinikBaseline} data={data.Indicators.KimiaKlinik} />
             case breakdown.MODE_URINALISIS:
                 return <Urinalisis />
         }
